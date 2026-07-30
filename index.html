@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Projeto FreeHands - Tecnologia assistiva vestível e Inteligência Artificial para tradução de Libras e acessibilidade comunicacional.">
+    <meta name="description"
+        content="Projeto FreeHands - Tecnologia assistiva vestível e Inteligência Artificial para tradução de Libras e acessibilidade comunicacional.">
     <title>Projeto FreeHands — Acessibilidade e Tecnologia em Libras</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --bg-main: #070913;
@@ -44,7 +48,9 @@
             --border: #ffffff;
         }
 
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -285,9 +291,20 @@
         }
 
         @keyframes pulse {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.4; transform: scale(0.85); }
-            100% { opacity: 1; transform: scale(1); }
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.4;
+                transform: scale(0.85);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .hero-title {
@@ -555,13 +572,26 @@
         }
 
         @media (max-width: 768px) {
-            .hero { grid-template-columns: 1fr; padding: 50px 24px; }
-            .nav-links { display: none; }
-            .hero-title { font-size: 2.3rem; }
-            .accessibility-bar { justify-content: center; }
+            .hero {
+                grid-template-columns: 1fr;
+                padding: 50px 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2.3rem;
+            }
+
+            .accessibility-bar {
+                justify-content: center;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <!-- Ambient Glow BG -->
@@ -574,7 +604,9 @@
     <div class="accessibility-bar">
         <span>Acessibilidade:</span>
         <button class="accessibility-btn" onclick="toggleContrast()" title="Alternar Modo Alto Contraste">
-            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 0 1 0-16v16z"/></svg>
+            <svg class="icon-svg" viewBox="0 0 24 24">
+                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 0 1 0-16v16z" />
+            </svg>
             Alto Contraste
         </button>
         <button class="accessibility-btn" onclick="changeFontSize(1)" title="Aumentar Fonte">A+</button>
@@ -596,7 +628,8 @@
             </ul>
             <div style="display: flex; gap: 12px; align-items: center;">
                 <a href="/app.html" class="btn-cta">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
                     </svg>
                     Tradutor IA
@@ -614,11 +647,14 @@
             </div>
             <h1 class="hero-title">Tecnologia vestível que dá <span class="gradient-text">voz e autonomia</span>.</h1>
             <p class="hero-subtitle">
-                O <strong>Projeto FreeHands</strong> combina dispositivos vestíveis com Inteligência Artificial para traduzir gestos da Libras em voz e texto em tempo real, aproximando a comunicação para pessoas com deficiência auditiva e pessoas não verbais.
+                O <strong>Projeto FreeHands</strong> combina dispositivos vestíveis com Inteligência Artificial para
+                traduzir gestos da Libras em voz e texto em tempo real, aproximando a comunicação para pessoas com
+                deficiência auditiva e pessoas não verbais.
             </p>
             <div style="display: flex; gap: 16px; flex-wrap: wrap; align-items: center;">
                 <a href="/app.html" class="btn-cta" style="font-size: 1.05rem; padding: 14px 28px;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
                         <path d="M23 7l-7 5 7 5V7z"></path>
                         <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
                     </svg>
@@ -631,26 +667,36 @@
         <div class="hero-card">
             <div class="hero-card-header">
                 <div class="hero-card-tag">// PROJETO INOVADOR</div>
-                <span style="background: rgba(56, 189, 248, 0.2); color: var(--primary-light); padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; font-family: var(--font-mono);">ONLINE</span>
+                <span
+                    style="background: rgba(56, 189, 248, 0.2); color: var(--primary-light); padding: 4px 10px; border-radius: 6px; font-size: 0.75rem; font-weight: 700; font-family: var(--font-mono);">ONLINE</span>
             </div>
-            <h3 style="font-size: 1.6rem; margin-bottom: 14px; font-weight: 800; color: #fff;">Solução Assistiva Independente</h3>
+            <h3 style="font-size: 1.6rem; margin-bottom: 14px; font-weight: 800; color: #fff;">Solução Assistiva
+                Independente</h3>
             <p style="color: #cbd5e1; font-size: 0.98rem; margin-bottom: 24px; line-height: 1.6;">
-                Desenvolvido por uma equipe dedicada de pesquisadores e engenheiros para superar os gargalos de acessibilidade na comunicação em ambientes de saúde, ensino e corporativos.
+                Desenvolvido por uma equipe dedicada de jovens que buscam solucionar problemas de acessibilidade na
+                comunicação em ambientes de saúde, ensino e corporativos.
             </p>
 
-            <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
+            <div
+                style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px; margin-bottom: 20px;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                    <span style="font-size: 0.85rem; font-weight: 700; color: var(--primary-light);">SISTEMA DE TRADUÇÃO IA</span>
-                    <span style="font-size: 0.8rem; color: #4ade80; font-family: var(--font-mono);">⚡ 30 FPS / MediaPipe</span>
+                    <span style="font-size: 0.85rem; font-weight: 700; color: var(--primary-light);">SISTEMA DE TRADUÇÃO
+                        IA</span>
+                    <span style="font-size: 0.8rem; color: #4ade80; font-family: var(--font-mono);">⚡ 30 FPS /
+                        MediaPipe</span>
                 </div>
-                <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 14px;">Experimente agora a detecção de gestos e voz pelo navegador da sua webcam.</p>
+                <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 14px;">Experimente agora a detecção de
+                    gestos e voz pelo navegador da sua webcam.</p>
                 <a href="/app.html" class="btn-cta" style="width: 100%; justify-content: center;">
                     Iniciar Câmera e Traduzir
                 </a>
             </div>
 
-            <div style="border-top: 1px solid rgba(255,255,255,0.12); padding-top: 16px; font-size: 0.85rem; color: #94a3b8; display: flex; align-items: center; gap: 8px;">
-                <svg class="icon-svg" style="fill: #38bdf8;" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 15h-2v-6h2zm0-8h-2V7h2z"/></svg>
+            <div
+                style="border-top: 1px solid rgba(255,255,255,0.12); padding-top: 16px; font-size: 0.85rem; color: #94a3b8; display: flex; align-items: center; gap: 8px;">
+                <svg class="icon-svg" style="fill: #38bdf8;" viewBox="0 0 24 24">
+                    <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm1 15h-2v-6h2zm0-8h-2V7h2z" />
+                </svg>
                 Protótipo Funcional Validado em Tempo Real
             </div>
         </div>
@@ -687,20 +733,30 @@
         <div class="grid-2">
             <div class="feature-card">
                 <div class="feature-icon-wrapper">
-                    <svg class="icon-svg-lg" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm1-13h-2v6l5.2 3.1.8-1.3-4-2.4z"/></svg>
+                    <svg class="icon-svg-lg" viewBox="0 0 24 24">
+                        <path
+                            d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8zm1-13h-2v6l5.2 3.1.8-1.3-4-2.4z" />
+                    </svg>
                 </div>
-                <h3 style="font-size: 1.3rem; margin-bottom: 12px; color: var(--text-main); font-weight: 700;">Dispositivo Vestível Inteligente</h3>
+                <h3 style="font-size: 1.3rem; margin-bottom: 12px; color: var(--text-main); font-weight: 700;">
+                    Dispositivo Vestível Inteligente</h3>
                 <p style="color: var(--text-muted); font-size: 0.98rem; line-height: 1.6;">
-                    Relógio/pulseira central acoplado a anéis flexíveis dotados de sensores de movimento (aceleração e rotação) para captura precisa de microgestos e orientação espacial das mãos.
+                    Relógio/pulseira central acoplado a anéis flexíveis dotados de sensores de movimento (aceleração e
+                    rotação) para captura precisa de microgestos e orientação espacial das mãos.
                 </p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon-wrapper">
-                    <svg class="icon-svg-lg" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+                    <svg class="icon-svg-lg" viewBox="0 0 24 24">
+                        <path
+                            d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                    </svg>
                 </div>
-                <h3 style="font-size: 1.3rem; margin-bottom: 12px; color: var(--text-main); font-weight: 700;">Inteligência Artificial Direcional</h3>
+                <h3 style="font-size: 1.3rem; margin-bottom: 12px; color: var(--text-main); font-weight: 700;">
+                    Inteligência Artificial Direcional</h3>
                 <p style="color: var(--text-muted); font-size: 0.98rem; line-height: 1.6;">
-                    Tradução em dois sentidos: converte os gestos do usuário em áudio e texto, e capta a fala de ouvintes transformando-a em texto direto na tela do relógio ou aplicação web.
+                    Tradução em dois sentidos: converte os gestos do usuário em áudio e texto, e capta a fala de
+                    ouvintes transformando-a em texto direto na tela do relógio ou aplicação web.
                 </p>
             </div>
         </div>
@@ -712,19 +768,25 @@
             <span class="section-tag">Fomento à Inclusão</span>
             <h2 class="section-title" style="margin-bottom: 12px;">Incentivo e Aprendizado de Libras</h2>
             <p style="color: var(--text-muted); max-width: 650px; margin: 0 auto; font-size: 1.05rem;">
-                Além do hardware, o projeto engloba um ecossistema educacional. Teste o módulo interativo abaixo para aprender uma expressão básica agora mesmo:
+                Além do hardware, o projeto engloba um ecossistema educacional. Teste o módulo interativo abaixo para
+                aprender uma expressão básica agora mesmo:
             </p>
 
             <div class="interactive-display">
-                <div id="libras-card-title" style="font-size: 1.6rem; font-weight: 800; color: var(--primary-light);">"Obrigado(a)"</div>
-                <p id="libras-card-desc" style="color: var(--text-muted); margin-top: 14px; font-size: 1rem; line-height: 1.6;">
+                <div id="libras-card-title" style="font-size: 1.6rem; font-weight: 800; color: var(--primary-light);">
+                    "Obrigado(a)"</div>
+                <p id="libras-card-desc"
+                    style="color: var(--text-muted); margin-top: 14px; font-size: 1rem; line-height: 1.6;">
                     Toque a ponta dos dedos na testa e depois mova a mão para a frente em direção à outra pessoa.
                 </p>
             </div>
 
             <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 16px;">
                 <button class="interactive-btn" onclick="nextLibrasWord()">
-                    <svg class="icon-svg" style="fill:#fff;" viewBox="0 0 24 24"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46A7.93 7.93 0 0 0 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74A7.93 7.93 0 0 0 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
+                    <svg class="icon-svg" style="fill:#fff;" viewBox="0 0 24 24">
+                        <path
+                            d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46A7.93 7.93 0 0 0 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74A7.93 7.93 0 0 0 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z" />
+                    </svg>
                     Aprender Novo Sinal
                 </button>
                 <a href="/app.html" class="btn-outline" style="padding: 12px 24px;">
@@ -737,9 +799,12 @@
     <!-- MENSAGEM / CITACÃO -->
     <div class="quote-container">
         <p class="quote-text">
-            "A falta de fluência na língua de sinais e a ausência de recursos para a comunicação não verbal geram barreiras profundas. Nossos dispositivos dão voz e autonomia para transformar a acessibilidade em larga escala."
+            "A falta de fluência na língua de sinais e a ausência de recursos para a comunicação não verbal geram
+            barreiras profundas. Nossos dispositivos dão voz e autonomia para transformar a acessibilidade em larga
+            escala."
         </p>
-        <span style="color: var(--accent); font-family: var(--font-mono); font-size: 0.95rem; font-weight: 600;">— Equipe Idealizadora FreeHands</span>
+        <span style="color: var(--accent); font-family: var(--font-mono); font-size: 0.95rem; font-weight: 600;">—
+            Equipe Idealizadora FreeHands</span>
     </div>
 
     <!-- APLICAÇÕES PRÁTICAS E IMPACTO -->
@@ -752,44 +817,61 @@
             <!-- Pessoas com Deficiência Auditiva -->
             <div class="feature-card">
                 <div class="feature-icon-wrapper">
-                    <svg class="icon-svg-lg" viewBox="0 0 24 24"><path d="M12 3a9 9 0 0 0-9 9c0 2.12.74 4.07 1.97 5.61L4.35 19.4A1 1 0 0 0 5.13 21h.15a1 1 0 0 0 .72-.34l1.37-1.57A8.93 8.93 0 0 0 12 21a9 9 0 0 0 0-18zm0 16a7 7 0 0 1-4.06-1.3l-.36-.26-1 1.15-.38-.49A6.96 6.96 0 0 1 5 12a7 7 0 1 1 7 7zm-1-11h2v6h-2zm0 8h2v2h-2z"/></svg>
+                    <svg class="icon-svg-lg" viewBox="0 0 24 24">
+                        <path
+                            d="M12 3a9 9 0 0 0-9 9c0 2.12.74 4.07 1.97 5.61L4.35 19.4A1 1 0 0 0 5.13 21h.15a1 1 0 0 0 .72-.34l1.37-1.57A8.93 8.93 0 0 0 12 21a9 9 0 0 0 0-18zm0 16a7 7 0 0 1-4.06-1.3l-.36-.26-1 1.15-.38-.49A6.96 6.96 0 0 1 5 12a7 7 0 1 1 7 7zm-1-11h2v6h-2zm0 8h2v2h-2z" />
+                    </svg>
                 </div>
-                <h3 style="color: var(--text-main); margin-bottom: 10px; font-weight: 700;">Pessoas com Deficiência Auditiva</h3>
+                <h3 style="color: var(--text-main); margin-bottom: 10px; font-weight: 700;">Pessoas com Deficiência
+                    Auditiva</h3>
                 <p style="color: var(--text-muted); font-size: 0.95rem;">
-                    Proporciona a tradução instantânea da Língua Brasileira de Sinais (Libras) para áudio sintetizado e converte a fala de ouvintes em texto na tela do dispositivo, garantindo autonomia plena no dia a dia.
+                    Proporciona a tradução instantânea da Língua Brasileira de Sinais (Libras) para áudio sintetizado e
+                    converte a fala de ouvintes em texto na tela do dispositivo, garantindo autonomia plena no dia a
+                    dia.
                 </p>
             </div>
 
             <!-- Pessoas Não Verbais -->
             <div class="feature-card">
                 <div class="feature-icon-wrapper">
-                    <svg class="icon-svg-lg" viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+                    <svg class="icon-svg-lg" viewBox="0 0 24 24">
+                        <path
+                            d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5s-3 1.34-3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z" />
+                    </svg>
                 </div>
                 <h3 style="color: var(--text-main); margin-bottom: 10px; font-weight: 700;">Pessoas Não Verbais</h3>
                 <p style="color: var(--text-muted); font-size: 0.95rem;">
-                    Oferece uma ferramenta de comunicação alternativa e ampliada (CAA). Através de gestos pré-configurados ou adaptados, permite a sintetização de voz instantânea em conversas presenciais.
+                    Oferece uma ferramenta de comunicação alternativa e ampliada (CAA). Através de gestos
+                    pré-configurados ou adaptados, permite a sintetização de voz instantânea em conversas presenciais.
                 </p>
             </div>
 
             <!-- Atendimento em Saúde -->
             <div class="feature-card">
                 <div class="feature-icon-wrapper">
-                    <svg class="icon-svg-lg" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg>
+                    <svg class="icon-svg-lg" viewBox="0 0 24 24">
+                        <path
+                            d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.89 2 1.99 2H19c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z" />
+                    </svg>
                 </div>
                 <h3 style="color: var(--text-main); margin-bottom: 10px; font-weight: 700;">Atendimento em Saúde</h3>
                 <p style="color: var(--text-muted); font-size: 0.95rem;">
-                    Garante que consultas, triagens e atendimentos de emergência ocorram com comunicação precisa e sem intermediários entre profissionais da saúde e pacientes.
+                    Garante que consultas, triagens e atendimentos de emergência ocorram com comunicação precisa e sem
+                    intermediários entre profissionais da saúde e pacientes.
                 </p>
             </div>
 
             <!-- Inclusão Educacional -->
             <div class="feature-card">
                 <div class="feature-icon-wrapper">
-                    <svg class="icon-svg-lg" viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+                    <svg class="icon-svg-lg" viewBox="0 0 24 24">
+                        <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
+                    </svg>
                 </div>
                 <h3 style="color: var(--text-main); margin-bottom: 10px; font-weight: 700;">Inclusão Educacional</h3>
                 <p style="color: var(--text-muted); font-size: 0.95rem;">
-                    Facilita a interação direta de alunos em salas de aula regulares com professores e colegas, promovendo a real inclusão escolar e social.
+                    Facilita a interação direta de alunos em salas de aula regulares com professores e colegas,
+                    promovendo a real inclusão escolar e social.
                 </p>
             </div>
         </div>
@@ -799,9 +881,11 @@
     <footer>
         <div class="footer-container">
             <div>
-                <h4 style="color: #fff; margin-bottom: 14px; font-size: 1.1rem; font-weight: 700;">Projeto FreeHands</h4>
+                <h4 style="color: #fff; margin-bottom: 14px; font-size: 1.1rem; font-weight: 700;">Projeto FreeHands
+                </h4>
                 <p style="font-size: 0.93rem; color: var(--text-muted); line-height: 1.6;">
-                    Tecnologia assistiva voltada à autonomia e acessibilidade de pessoas com deficiência auditiva e pessoas não verbais em ambientes de saúde, ensino e corporativos.
+                    Tecnologia assistiva voltada à autonomia e acessibilidade de pessoas com deficiência auditiva e
+                    pessoas não verbais em ambientes de saúde, ensino e corporativos.
                 </p>
             </div>
             <div>
@@ -809,11 +893,16 @@
                 <p style="font-size: 0.93rem; color: var(--text-muted);">Rogério B., Enzo T., Henrique V., Bruno P.</p>
             </div>
             <div>
-                <h4 style="color: #fff; margin-bottom: 14px; font-size: 1.1rem; font-weight: 700;">Contato Institucional</h4>
+                <h4 style="color: #fff; margin-bottom: 14px; font-size: 1.1rem; font-weight: 700;">Contato Institucional
+                </h4>
                 <p style="font-size: 0.93rem; color: var(--text-muted);">
                     Conecte-se com a liderança do projeto:<br><br>
-                    <a href="https://www.linkedin.com/in/rogerio-berlanda-643b45161" target="_blank" class="social-link">
-                        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                    <a href="https://www.linkedin.com/in/rogerio-berlanda-643b45161" target="_blank"
+                        class="social-link">
+                        <svg class="icon-svg" viewBox="0 0 24 24">
+                            <path
+                                d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+                        </svg>
                         Rogério Berlanda (LinkedIn)
                     </a>
                 </p>
@@ -857,4 +946,5 @@
         }
     </script>
 </body>
+
 </html>
