@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500">
+  <defs>
+    <linearGradient id="favGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0066FF" />
+      <stop offset="100%" stop-color="#004AD7" />
+    </linearGradient>
+  </defs>
+  <path fill="url(#favGrad)" d="
+    M 210,448
+    C 145,432 112,385 58,308
+    C 41,283 67,252 92,275
+    L 136,316
+    L 136,108
+    C 136,65 174,65 174,108
+    L 178,255
+    L 225,52
+    C 238,20 274,32 264,68
+    L 236,252
+    L 358,85
+    C 382,52 414,79 392,106
+    L 282,270
+    L 448,272
+    C 485,272 485,320 448,320
+    L 268,325
+    C 278,375 272,425 242,450
+    C 232,458 220,455 210,448 Z" />
+  <rect x="180" y="235" width="16" height="34" rx="8" fill="#FFFFFF" />
+  <rect x="245" y="235" width="16" height="34" rx="8" fill="#FFFFFF" />
+  <path d="M 185 328 A 38 38 0 0 0 255 328" fill="none" stroke="#FFFFFF" stroke-width="15" stroke-linecap="round" />
+</svg>

@@ -1,0 +1,14 @@
+{
+  "name": "libras-reconhecimento",
+  "version": "1.0.0",
+  "description": "Reconhecimento de Libras em tempo real com câmera",
+  "type": "module",
+  "scripts": {
+    "dev": "npx vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.11"
+  }
+}
