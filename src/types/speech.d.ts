@@ -52,6 +52,11 @@ declare global {
     VLibras: {
       Widget: new (url: string) => void;
     };
+    plugin?: {
+      translate: (text: string) => void;
+      player: { gloss: string };
+    };
+    __vlibrasPlaySign: (glosa: string) => void;
   }
 }
 

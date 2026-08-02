@@ -4,8 +4,10 @@ import { useState } from "react";
 import AccessibilityBar from "@/components/layout/AccessibilityBar";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import VLibrasPlayerModal from "@/components/vlibras/VLibrasPlayerModal";
 import { LIBRAS_ALPHABET } from "@/lib/data/libras-alphabet";
 import { LIBRAS_WORDS, WORD_CATEGORIES } from "@/lib/data/libras-words";
+import type { LibrasSign } from "@/types/lesson";
 
 const allSigns = [...LIBRAS_ALPHABET, ...LIBRAS_WORDS];
 
@@ -55,6 +57,7 @@ const categoryIcons: Record<string, React.ReactNode> = {
 export default function DicionarioPage() {
   const [query, setQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState<string>("todas");
+  const [activeSign, setActiveSign] = useState<LibrasSign | null>(null);
 
   const filtered = allSigns.filter((s) => {
     const text = (s.letter || s.word || "").toLowerCase();
@@ -71,10 +74,10 @@ export default function DicionarioPage() {
       <main id="main-content">
         <section className="section">
           <div className="section-header">
-            <span className="section-tag">Referência Completa</span>
+            <span className="section-tag">Base de Dados WikiLibras</span>
             <h1 className="section-title">Dicionário de Libras</h1>
             <p className="section-subtitle">
-              Busque por letras, palavras ou frases em Libras. Cada entrada inclui descrição detalhada do gesto.
+              Busque por letras, palavras ou frases em Libras. Clique em qualquer sinal para visualizar a demonstração no avatar 3D do VLibras.
             </p>
           </div>
 
@@ -152,48 +155,61 @@ export default function DicionarioPage() {
             gap: "var(--space-4)",
           }}>
             {filtered.map((sign) => (
-              <div key={sign.id} className="card" style={{ padding: "var(--space-5)" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "var(--space-3)", marginBottom: "var(--space-3)" }}>
-                  <div style={{
-                    minWidth: 44, height: 44, borderRadius: "var(--radius-md)",
-                    background: sign.letter ? "rgba(0,102,255,0.15)" : "rgba(6,182,212,0.15)",
-                    display: "flex", alignItems: "center", justifyContent: "center",
-                    fontSize: sign.letter ? "var(--font-size-xl)" : "var(--font-size-sm)",
-                    fontWeight: 800,
-                    color: sign.letter ? "var(--brand-primary-light)" : "var(--brand-cyan)",
-                    border: `1px solid ${sign.letter ? "rgba(0,102,255,0.3)" : "rgba(6,182,212,0.3)"}`,
-                  }}>
-                    {sign.letter ? (
-                      sign.letter
-                    ) : (
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              <div key={sign.id} className="card" style={{ padding: "var(--space-5)", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                <div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "var(--space-3)", marginBottom: "var(--space-3)" }}>
+                    <div style={{
+                      minWidth: 44, height: 44, borderRadius: "var(--radius-md)",
+                      background: sign.letter ? "rgba(0,102,255,0.15)" : "rgba(6,182,212,0.15)",
+                      display: "flex", alignItems: "center", justifyContent: "center",
+                      fontSize: sign.letter ? "var(--font-size-xl)" : "var(--font-size-sm)",
+                      fontWeight: 800,
+                      color: sign.letter ? "var(--brand-primary-light)" : "var(--brand-cyan)",
+                      border: `1px solid ${sign.letter ? "rgba(0,102,255,0.3)" : "rgba(6,182,212,0.3)"}`,
+                    }}>
+                      {sign.letter ? (
+                        sign.letter
+                      ) : (
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                        </svg>
+                      )}
+                    </div>
+                    <div>
+                      <h3 style={{ fontSize: "var(--font-size-base)", fontWeight: 700, color: "var(--text-primary)" }}>
+                        {sign.letter ? `Letra ${sign.letter}` : sign.word}
+                      </h3>
+                      <span style={{ fontSize: "var(--font-size-xs)", color: "var(--text-muted)" }}>
+                        {sign.description}
+                      </span>
+                    </div>
+                  </div>
+
+                  <p style={{ color: "var(--text-secondary)", fontSize: "var(--font-size-sm)", lineHeight: 1.7 }}>
+                    {sign.instruction}
+                  </p>
+
+                  {sign.tips && (
+                    <p style={{ color: "var(--text-muted)", fontSize: "var(--font-size-xs)", marginTop: "var(--space-2)", display: "flex", alignItems: "center", gap: "6px" }}>
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary-light)" strokeWidth="2" style={{ flexShrink: 0 }}>
+                        <path d="M12 2a6 6 0 0 0-6 6c0 2.22 1.21 4.15 3 5.19V17a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-3.81A6.002 6.002 0 0 0 18 8a6 6 0 0 0-6-6z" />
+                        <line x1="9" y1="21" x2="15" y2="21" />
                       </svg>
-                    )}
-                  </div>
-                  <div>
-                    <h3 style={{ fontSize: "var(--font-size-base)", fontWeight: 700, color: "var(--text-primary)" }}>
-                      {sign.letter ? `Letra ${sign.letter}` : sign.word}
-                    </h3>
-                    <span style={{ fontSize: "var(--font-size-xs)", color: "var(--text-muted)" }}>
-                      {sign.description}
-                    </span>
-                  </div>
+                      <span>{sign.tips}</span>
+                    </p>
+                  )}
                 </div>
 
-                <p style={{ color: "var(--text-secondary)", fontSize: "var(--font-size-sm)", lineHeight: 1.7 }}>
-                  {sign.instruction}
-                </p>
-
-                {sign.tips && (
-                  <p style={{ color: "var(--text-muted)", fontSize: "var(--font-size-xs)", marginTop: "var(--space-2)", display: "flex", alignItems: "center", gap: "6px" }}>
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary-light)" strokeWidth="2" style={{ flexShrink: 0 }}>
-                      <path d="M12 2a6 6 0 0 0-6 6c0 2.22 1.21 4.15 3 5.19V17a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-3.81A6.002 6.002 0 0 0 18 8a6 6 0 0 0-6-6z" />
-                      <line x1="9" y1="21" x2="15" y2="21" />
-                    </svg>
-                    <span>{sign.tips}</span>
-                  </p>
-                )}
+                <button
+                  className="btn btn-outline btn-sm"
+                  style={{ marginTop: "var(--space-4)", width: "100%", justifyContent: "center" }}
+                  onClick={() => setActiveSign(sign)}
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <polygon points="5 3 19 12 5 21 5 3" />
+                  </svg>
+                  Ver no VLibras (3D)
+                </button>
               </div>
             ))}
           </div>
@@ -214,6 +230,8 @@ export default function DicionarioPage() {
           )}
         </section>
       </main>
+
+      <VLibrasPlayerModal sign={activeSign} onClose={() => setActiveSign(null)} />
       <Footer />
     </>
   );

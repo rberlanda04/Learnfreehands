@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useState } from "react";
 import AccessibilityBar from "@/components/layout/AccessibilityBar";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import VLibrasPlayerModal from "@/components/vlibras/VLibrasPlayerModal";
+import SignAvatar from "@/components/vlibras/SignAvatar";
 import { LIBRAS_WORDS, WORD_CATEGORIES } from "@/lib/data/libras-words";
-
-export const metadata: Metadata = {
-  title: "Vocabulário e Frases em Libras",
-  description: "Vocabulário essencial de Libras organizado por categorias: cumprimentos, saúde, emergência, educação, cotidiano e família.",
-};
+import type { LibrasSign } from "@/types/lesson";
 
 const categoryIcons: Record<string, React.ReactNode> = {
   hand: (
@@ -53,6 +53,8 @@ const categoryIcons: Record<string, React.ReactNode> = {
 };
 
 export default function PalavrasPage() {
+  const [activeSign, setActiveSign] = useState<LibrasSign | null>(null);
+
   return (
     <>
       <AccessibilityBar />
@@ -60,10 +62,10 @@ export default function PalavrasPage() {
       <main id="main-content">
         <section className="section">
           <div className="section-header">
-            <span className="section-tag">Módulo 2 • Vocabulário</span>
+            <span className="section-tag">Módulo 2 • Vocabulário WikiLibras</span>
             <h1 className="section-title">Palavras e Frases em Libras</h1>
             <p className="section-subtitle">
-              Aprenda palavras essenciais organizadas por categorias do dia a dia.
+              Aprenda palavras essenciais organizadas por categorias do dia a dia com suporte ao avatar 3D do VLibras.
             </p>
           </div>
 
@@ -88,30 +90,36 @@ export default function PalavrasPage() {
                   gap: "var(--space-4)",
                 }}>
                   {words.map((w) => (
-                    <div key={w.id} className="card" style={{ padding: "var(--space-6)" }}>
-                      <h3 className="card-title" style={{ fontSize: "var(--font-size-lg)", marginBottom: "var(--space-2)" }}>
-                        {w.word}
-                      </h3>
-                      <p style={{ color: "var(--text-muted)", fontSize: "var(--font-size-xs)", marginBottom: "var(--space-3)" }}>
-                        {w.description}
-                      </p>
-                      <div style={{
-                        background: "rgba(0,102,255,0.08)", borderRadius: "var(--radius-md)",
-                        padding: "var(--space-3)", border: "1px solid rgba(0,102,255,0.15)",
-                      }}>
-                        <p style={{ color: "var(--text-secondary)", fontSize: "var(--font-size-sm)", lineHeight: 1.7 }}>
-                          {w.instruction}
+                    <div key={w.id} className="card" style={{ padding: "var(--space-6)", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                      <div>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "var(--space-2)" }}>
+                          <h3 className="card-title" style={{ fontSize: "var(--font-size-lg)" }}>
+                            {w.word}
+                          </h3>
+                          <span className="badge" style={{
+                            fontSize: "var(--font-size-xs)",
+                            background: w.difficulty === "iniciante" ? "rgba(16,185,129,0.15)" : w.difficulty === "intermediario" ? "rgba(245,158,11,0.15)" : "rgba(239,68,68,0.15)",
+                            borderColor: w.difficulty === "iniciante" ? "rgba(16,185,129,0.4)" : w.difficulty === "intermediario" ? "rgba(245,158,11,0.4)" : "rgba(239,68,68,0.4)",
+                            color: w.difficulty === "iniciante" ? "var(--color-success)" : w.difficulty === "intermediario" ? "var(--color-warning)" : "var(--color-danger)",
+                          }}>
+                            {w.difficulty === "iniciante" ? "Fácil" : w.difficulty === "intermediario" ? "Médio" : "Difícil"}
+                          </span>
+                        </div>
+                        <p style={{ color: "var(--text-muted)", fontSize: "var(--font-size-xs)", marginBottom: "var(--space-3)" }}>
+                          {w.description}
                         </p>
-                      </div>
-                      <div style={{ marginTop: "var(--space-3)" }}>
-                        <span className="badge" style={{
-                          fontSize: "var(--font-size-xs)",
-                          background: w.difficulty === "iniciante" ? "rgba(16,185,129,0.15)" : w.difficulty === "intermediario" ? "rgba(245,158,11,0.15)" : "rgba(239,68,68,0.15)",
-                          borderColor: w.difficulty === "iniciante" ? "rgba(16,185,129,0.4)" : w.difficulty === "intermediario" ? "rgba(245,158,11,0.4)" : "rgba(239,68,68,0.4)",
-                          color: w.difficulty === "iniciante" ? "var(--color-success)" : w.difficulty === "intermediario" ? "var(--color-warning)" : "var(--color-danger)",
+                        <div style={{
+                          background: "rgba(0,102,255,0.08)", borderRadius: "var(--radius-md)",
+                          padding: "var(--space-3)", border: "1px solid rgba(0,102,255,0.15)",
                         }}>
-                          {w.difficulty === "iniciante" ? "Fácil" : w.difficulty === "intermediario" ? "Médio" : "Difícil"}
-                        </span>
+                          <p style={{ color: "var(--text-secondary)", fontSize: "var(--font-size-sm)", lineHeight: 1.7 }}>
+                            {w.instruction}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div style={{ marginTop: "var(--space-4)" }}>
+                        <SignAvatar sign={w} onShowDetails={() => setActiveSign(w)} />
                       </div>
                     </div>
                   ))}
@@ -121,6 +129,8 @@ export default function PalavrasPage() {
           })}
         </section>
       </main>
+
+      <VLibrasPlayerModal sign={activeSign} onClose={() => setActiveSign(null)} />
       <Footer />
     </>
   );

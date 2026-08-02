@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import VLibrasWidget from "@/components/vlibras/VLibrasWidget";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://learnfreehands.vercel.app"),
@@ -67,27 +68,8 @@ export default function RootLayout({
 
         {children}
 
-        {/* VLibras Widget — Governo Federal */}
-        <div
-          dangerouslySetInnerHTML={{
-            __html: `
-              <div vw class="enabled">
-                <div vw-access-button class="active"></div>
-                <div vw-plugin-wrapper>
-                  <div class="vw-plugin-top-wrapper"></div>
-                </div>
-              </div>
-              <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-              <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                  if (window.VLibras) {
-                    new window.VLibras.Widget('https://vlibras.gov.br/app');
-                  }
-                });
-              </script>
-            `,
-          }}
-        />
+        {/* VLibras Widget — Governo Federal (injetado apenas no cliente para evitar erro de hidratação) */}
+        <VLibrasWidget />
       </body>
     </html>
   );

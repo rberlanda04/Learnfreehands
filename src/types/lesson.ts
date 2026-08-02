@@ -13,6 +13,10 @@ export interface LibrasSign {
   tips?: string;
   difficulty: 'iniciante' | 'intermediario' | 'avancado';
   supported: boolean;
+  vlibrasGlosa?: string;
+  videoUrl?: string;
+  gifUrl?: string;
+  handShape?: string;
 }
 
 export type SignCategory =
