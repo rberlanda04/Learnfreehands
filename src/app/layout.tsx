@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://learnfreehands.vercel.app"),
   title: {
     default: "WiW Speak — Window in World | Acessibilidade em Libras",
     template: "%s | WiW Speak",
