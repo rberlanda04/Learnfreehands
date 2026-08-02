@@ -38,7 +38,8 @@ export default function HomePage() {
               </Link>
               <Link href="/aprender" className="btn btn-outline btn-lg">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
                 </svg>
                 Aprender Libras
               </Link>
@@ -76,8 +77,11 @@ export default function HomePage() {
                 <span style={{ fontSize: "var(--font-size-sm)", fontWeight: 700, color: "var(--brand-primary-light)" }}>
                   SISTEMA DE TRADUÇÃO IA
                 </span>
-                <span className="font-mono" style={{ fontSize: "var(--font-size-xs)", color: "var(--color-success)" }}>
-                  ⚡ 30 FPS / MediaPipe
+                <span className="font-mono" style={{ fontSize: "var(--font-size-xs)", color: "var(--color-success)", display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                  </svg>
+                  30 FPS / MediaPipe
                 </span>
               </div>
               <p style={{ fontSize: "var(--font-size-sm)", color: "var(--text-secondary)", marginBottom: "var(--space-4)" }}>
@@ -218,10 +222,18 @@ export default function HomePage() {
 
             <div style={{ display: "flex", gap: "var(--space-4)", justifyContent: "center", flexWrap: "wrap", marginTop: "var(--space-4)" }}>
               <Link href="/aprender" className="btn btn-primary">
-                📚 Começar a Aprender Libras
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                </svg>
+                Começar a Aprender Libras
               </Link>
               <Link href="/tradutor" className="btn btn-outline">
-                🤖 Praticar com Câmera no Tradutor IA
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M23 7l-7 5 7 5V7z" />
+                  <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                </svg>
+                Praticar com Câmera no Tradutor IA
               </Link>
             </div>
           </div>
@@ -317,21 +329,41 @@ export default function HomePage() {
 
           <div className="grid-3">
             <div className="card" style={{ textAlign: "center" }}>
-              <div style={{ fontSize: "var(--font-size-4xl)", marginBottom: "var(--space-4)" }}>🤝</div>
+              <div className="card-icon" style={{ margin: "0 auto var(--space-4)" }}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
               <h3 className="card-title">Empatia</h3>
               <p className="card-description">
                 Aprender a se comunicar de formas diferentes desenvolve empatia e compreensão pela realidade de outras pessoas.
               </p>
             </div>
             <div className="card" style={{ textAlign: "center" }}>
-              <div style={{ fontSize: "var(--font-size-4xl)", marginBottom: "var(--space-4)" }}>🖐️</div>
+              <div className="card-icon" style={{ margin: "0 auto var(--space-4)" }}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M18 11V6a2 2 0 0 0-4 0v5" />
+                  <path d="M14 10V4a2 2 0 0 0-4 0v6" />
+                  <path d="M10 10.5V6a2 2 0 0 0-4 0v8" />
+                  <path d="M18 8a2 2 0 0 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" />
+                </svg>
+              </div>
               <h3 className="card-title">Coordenação Motora</h3>
               <p className="card-description">
                 Os gestos de Libras estimulam a coordenação motora fina e a consciência espacial do corpo.
               </p>
             </div>
             <div className="card" style={{ textAlign: "center" }}>
-              <div style={{ fontSize: "var(--font-size-4xl)", marginBottom: "var(--space-4)" }}>🧠</div>
+              <div className="card-icon" style={{ margin: "0 auto var(--space-4)" }}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 16v-4" />
+                  <path d="M12 8h.01" />
+                </svg>
+              </div>
               <h3 className="card-title">Pensamento Crítico</h3>
               <p className="card-description">
                 Comunicar-se de formas não verbais exercita o raciocínio, a criatividade e o pensamento crítico.
@@ -368,7 +400,11 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="btn btn-primary"
               >
-                📋 Responder Pesquisa
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                  <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+                </svg>
+                Responder Pesquisa
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                   <polyline points="15 3 21 3 21 9" />
@@ -397,7 +433,12 @@ export default function HomePage() {
                 className="btn btn-outline"
                 style={{ borderColor: "#e1306c", color: "#f472b6" }}
               >
-                📸 @freehandstartup no Instagram
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+                @freehandstartup no Instagram
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                   <polyline points="15 3 21 3 21 9" />

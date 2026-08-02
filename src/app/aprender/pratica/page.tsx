@@ -91,7 +91,12 @@ export default function PraticaPage() {
               <div style={{ fontSize: "var(--font-size-sm)", color: "var(--text-muted)" }}>Precisão</div>
             </div>
             <div style={{ textAlign: "center" }}>
-              <div className="font-mono" style={{ fontSize: "var(--font-size-3xl)", fontWeight: 800, color: "var(--color-warning)" }}>🔥{streak}</div>
+              <div className="font-mono" style={{ fontSize: "var(--font-size-3xl)", fontWeight: 800, color: "var(--color-warning)", display: "flex", alignItems: "center", justifyContent: "center", gap: "4px" }}>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 3.5z" />
+                </svg>
+                {streak}
+              </div>
               <div style={{ fontSize: "var(--font-size-sm)", color: "var(--text-muted)" }}>Streak</div>
             </div>
           </div>
@@ -151,17 +156,28 @@ export default function PraticaPage() {
             {showAnswer && (
               <div style={{ marginBottom: "var(--space-4)" }}>
                 {selectedAnswer === currentSign.letter ? (
-                  <p style={{ color: "var(--color-success)", fontWeight: 700, fontSize: "var(--font-size-lg)" }}>
-                    ✅ Correto! A letra é {currentSign.letter}.
+                  <p style={{ color: "var(--color-success)", fontWeight: 700, fontSize: "var(--font-size-lg)", display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                      <polyline points="20 6 9 17 4 12" />
+                    </svg>
+                    Correto! A letra é {currentSign.letter}.
                   </p>
                 ) : (
-                  <p style={{ color: "var(--color-danger)", fontWeight: 700, fontSize: "var(--font-size-lg)" }}>
-                    ❌ Incorreto. A resposta era <strong style={{ color: "var(--color-success)" }}>{currentSign.letter}</strong>.
+                  <p style={{ color: "var(--color-danger)", fontWeight: 700, fontSize: "var(--font-size-lg)", display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                      <line x1="18" y1="6" x2="6" y2="18" />
+                      <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                    Incorreto. A resposta era <strong style={{ color: "var(--color-success)" }}>{currentSign.letter}</strong>.
                   </p>
                 )}
                 {currentSign.tips && (
-                  <p style={{ color: "var(--text-muted)", fontSize: "var(--font-size-sm)", marginTop: "var(--space-2)" }}>
-                    💡 {currentSign.tips}
+                  <p style={{ color: "var(--text-muted)", fontSize: "var(--font-size-sm)", marginTop: "var(--space-2)", display: "flex", alignItems: "center", justifyContent: "center", gap: "6px" }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M12 2a6 6 0 0 0-6 6c0 2.22 1.21 4.15 3 5.19V17a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-3.81A6.002 6.002 0 0 0 18 8a6 6 0 0 0-6-6z" />
+                      <line x1="9" y1="21" x2="15" y2="21" />
+                    </svg>
+                    <span>{currentSign.tips}</span>
                   </p>
                 )}
               </div>
@@ -175,7 +191,12 @@ export default function PraticaPage() {
                 </button>
               )}
               <button className="btn btn-secondary" onClick={resetQuiz}>
-                🔄 Recomeçar
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M23 4v6h-6" />
+                  <path d="M1 20v-6h6" />
+                  <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+                </svg>
+                Recomeçar
               </button>
             </div>
           </div>
@@ -183,7 +204,11 @@ export default function PraticaPage() {
           {/* Links */}
           <div style={{ textAlign: "center", marginTop: "var(--space-8)" }}>
             <Link href="/tradutor" className="btn btn-outline btn-lg">
-              📷 Praticar com Câmera no Tradutor IA
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M23 7l-7 5 7 5V7z" />
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+              </svg>
+              Praticar com Câmera no Tradutor IA
             </Link>
           </div>
         </section>

@@ -44,7 +44,13 @@ export default function SobrePage() {
           {/* Mission / Vision / Values */}
           <div className="grid-3" style={{ marginBottom: "var(--space-16)" }}>
             <div className="card" style={{ textAlign: "center", borderColor: "rgba(0,102,255,0.3)" }}>
-              <div style={{ fontSize: "var(--font-size-4xl)", marginBottom: "var(--space-4)" }}>🎯</div>
+              <div className="card-icon" style={{ margin: "0 auto var(--space-4)", color: "var(--brand-primary-light)" }}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <circle cx="12" cy="12" r="6" />
+                  <circle cx="12" cy="12" r="2" />
+                </svg>
+              </div>
               <h3 className="card-title">Missão</h3>
               <p className="card-description">
                 Desenvolver tecnologia assistiva inteligente que elimina barreiras comunicacionais,
@@ -52,7 +58,13 @@ export default function SobrePage() {
               </p>
             </div>
             <div className="card" style={{ textAlign: "center", borderColor: "rgba(6,182,212,0.3)" }}>
-              <div style={{ fontSize: "var(--font-size-4xl)", marginBottom: "var(--space-4)" }}>🌍</div>
+              <div className="card-icon" style={{ margin: "0 auto var(--space-4)", color: "var(--brand-cyan)" }}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                </svg>
+              </div>
               <h3 className="card-title">Visão</h3>
               <p className="card-description">
                 Um mundo onde a comunicação é universal — onde tecnologia vestível torna a
@@ -60,7 +72,12 @@ export default function SobrePage() {
               </p>
             </div>
             <div className="card" style={{ textAlign: "center", borderColor: "rgba(139,92,246,0.3)" }}>
-              <div style={{ fontSize: "var(--font-size-4xl)", marginBottom: "var(--space-4)" }}>💡</div>
+              <div className="card-icon" style={{ margin: "0 auto var(--space-4)", color: "#8B5CF6" }}>
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M12 2a6 6 0 0 0-6 6c0 2.22 1.21 4.15 3 5.19V17a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-3.81A6.002 6.002 0 0 0 18 8a6 6 0 0 0-6-6z" />
+                  <line x1="9" y1="21" x2="15" y2="21" />
+                </svg>
+              </div>
               <h3 className="card-title">Valores</h3>
               <p className="card-description">
                 Acessibilidade como direito fundamental, inovação com propósito social,
@@ -137,7 +154,20 @@ export default function SobrePage() {
                     fontWeight: 800, fontSize: "var(--font-size-sm)",
                     border: `1px solid ${t.status === "concluído" ? "rgba(16,185,129,0.4)" : t.status === "em progresso" ? "rgba(0,102,255,0.4)" : "var(--border-subtle)"}`,
                   }}>
-                    {t.status === "concluído" ? "✅" : t.status === "em progresso" ? "⚡" : "📋"}
+                    {t.status === "concluído" ? (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                    ) : t.status === "em progresso" ? (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                      </svg>
+                    ) : (
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+                      </svg>
+                    )}
                   </div>
                   <div>
                     <div style={{ display: "flex", alignItems: "center", gap: "var(--space-2)", marginBottom: "var(--space-1)" }}>

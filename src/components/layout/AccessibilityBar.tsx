@@ -50,7 +50,14 @@ export default function AccessibilityBar() {
 
   return (
     <div className="accessibility-bar" role="toolbar" aria-label="Ferramentas de acessibilidade">
-      <span className="accessibility-bar-label">♿ Acessibilidade:</span>
+      <span className="accessibility-bar-label" style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="5" r="2" />
+          <path d="m9 22 1-3.5 1-2.5 1-2h2l1 2 1 2.5 1 3.5" />
+          <path d="m3 10 9 2 9-2" />
+        </svg>
+        Acessibilidade:
+      </span>
 
       <button
         className="accessibility-btn"

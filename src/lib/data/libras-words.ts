@@ -262,10 +262,10 @@ export function getWordsByCategory(category: string): LibrasSign[] {
  * Categorias disponíveis com rótulos
  */
 export const WORD_CATEGORIES = [
-  { id: "cumprimentos", label: "Cumprimentos", emoji: "👋", count: LIBRAS_WORDS.filter(w => w.category === "cumprimentos").length },
-  { id: "saude", label: "Saúde", emoji: "🏥", count: LIBRAS_WORDS.filter(w => w.category === "saude").length },
-  { id: "emergencia", label: "Emergência", emoji: "🚨", count: LIBRAS_WORDS.filter(w => w.category === "emergencia").length },
-  { id: "educacao", label: "Educação", emoji: "📚", count: LIBRAS_WORDS.filter(w => w.category === "educacao").length },
-  { id: "cotidiano", label: "Cotidiano", emoji: "🏠", count: LIBRAS_WORDS.filter(w => w.category === "cotidiano").length },
-  { id: "familia", label: "Família", emoji: "👨‍👩‍👧‍👦", count: LIBRAS_WORDS.filter(w => w.category === "familia").length },
+  { id: "cumprimentos", label: "Cumprimentos", icon: "hand", count: LIBRAS_WORDS.filter(w => w.category === "cumprimentos").length },
+  { id: "saude", label: "Saúde", icon: "health", count: LIBRAS_WORDS.filter(w => w.category === "saude").length },
+  { id: "emergencia", label: "Emergência", icon: "alert", count: LIBRAS_WORDS.filter(w => w.category === "emergencia").length },
+  { id: "educacao", label: "Educação", icon: "book", count: LIBRAS_WORDS.filter(w => w.category === "educacao").length },
+  { id: "cotidiano", label: "Cotidiano", icon: "home", count: LIBRAS_WORDS.filter(w => w.category === "cotidiano").length },
+  { id: "familia", label: "Família", icon: "users", count: LIBRAS_WORDS.filter(w => w.category === "familia").length },
 ];

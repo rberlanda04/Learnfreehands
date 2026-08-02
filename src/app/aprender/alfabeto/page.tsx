@@ -45,8 +45,22 @@ export default function AlfabetoPage() {
                   </div>
 
                   <div style={{ display: "flex", gap: "var(--space-2)", alignItems: "center" }}>
-                    <span className={`badge ${sign.supported ? "badge-success" : ""}`} style={{ fontSize: "var(--font-size-xs)" }}>
-                      {sign.supported ? "✅ IA Suportada" : "🚧 Em Desenvolvimento"}
+                    <span className={`badge ${sign.supported ? "badge-success" : ""}`} style={{ fontSize: "var(--font-size-xs)", display: "inline-flex", alignItems: "center", gap: "4px" }}>
+                      {sign.supported ? (
+                        <>
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                            <polyline points="20 6 9 17 4 12" />
+                          </svg>
+                          IA Suportada
+                        </>
+                      ) : (
+                        <>
+                          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                          </svg>
+                          Em Desenvolvimento
+                        </>
+                      )}
                     </span>
                     <span className="badge" style={{
                       fontSize: "var(--font-size-xs)",
@@ -80,8 +94,12 @@ export default function AlfabetoPage() {
                 </div>
 
                 {sign.tips && (
-                  <p style={{ color: "var(--text-muted)", fontSize: "var(--font-size-sm)", marginTop: "var(--space-3)", fontStyle: "italic" }}>
-                    💡 {sign.tips}
+                  <p style={{ color: "var(--text-muted)", fontSize: "var(--font-size-sm)", marginTop: "var(--space-3)", display: "flex", alignItems: "center", gap: "6px" }}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--brand-primary-light)" strokeWidth="2" style={{ flexShrink: 0 }}>
+                      <path d="M12 2a6 6 0 0 0-6 6c0 2.22 1.21 4.15 3 5.19V17a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-3.81A6.002 6.002 0 0 0 18 8a6 6 0 0 0-6-6z" />
+                      <line x1="9" y1="21" x2="15" y2="21" />
+                    </svg>
+                    <span>{sign.tips}</span>
                   </p>
                 )}
               </div>

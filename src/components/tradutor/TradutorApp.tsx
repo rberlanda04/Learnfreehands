@@ -57,9 +57,7 @@ export default function TradutorApp() {
     setLoadingText("Carregando biblioteca MediaPipe...");
 
     try {
-      const { FilesetResolver, HandLandmarker } = await import(
-        "@mediapipe/tasks-vision"
-      );
+      const { FilesetResolver, HandLandmarker } = await import("@mediapipe/tasks-vision");
 
       setLoadingText("Inicializando detector de sinais...");
 
@@ -107,7 +105,6 @@ export default function TradutorApp() {
     const detectFrame = () => {
       const now = performance.now();
 
-      // FPS calculation
       fpsCountRef.current.count++;
       if (now - fpsCountRef.current.lastTime >= 1000) {
         setFps(Math.round((fpsCountRef.current.count * 1000) / (now - fpsCountRef.current.lastTime)));
@@ -194,7 +191,6 @@ export default function TradutorApp() {
   }, []);
 
   const drawHand = (ctx: CanvasRenderingContext2D, landmarks: HandLandmark[], w: number, h: number) => {
-    // Connections
     ctx.strokeStyle = "#0066FF";
     ctx.lineWidth = 3;
     ctx.lineCap = "round";
@@ -306,7 +302,6 @@ export default function TradutorApp() {
     showToast(enabled ? "Síntese de voz ativada" : "Síntese de voz silenciada");
   };
 
-  // Keyboard shortcuts
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
       if ((e.target as HTMLElement).tagName === "INPUT") return;
@@ -345,37 +340,48 @@ export default function TradutorApp() {
             {statusText}
           </div>
           <button className="btn btn-icon" onClick={toggleSound} title={soundEnabled ? "Silenciar" : "Ativar som"} aria-label={soundEnabled ? "Silenciar voz" : "Ativar voz"}>
-            🔊
+            {soundEnabled ? (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" />
+              </svg>
+            ) : (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="1" y1="1" x2="23" y2="23" />
+                <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+              </svg>
+            )}
           </button>
           <button className="btn btn-icon" onClick={() => setShowHelp(true)} title="Ajuda" aria-label="Abrir ajuda">
-            ❓
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+              <line x1="12" y1="17" x2="12.01" y2="17" />
+            </svg>
           </button>
         </div>
       </div>
 
-      {/* Main Layout */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 380px", gap: "var(--space-6)", alignItems: "start" }}>
+      {/* Main Layout Grid */}
+      <div className="tradutor-grid">
         {/* Camera Section */}
         <div>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "var(--space-3)" }}>
             <span style={{ display: "flex", alignItems: "center", gap: "var(--space-2)", color: "var(--text-secondary)", fontSize: "var(--font-size-sm)", fontWeight: 600 }}>
-              📹 Visão Computacional
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M23 7l-7 5 7 5V7z" />
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+              </svg>
+              Visão Computacional
             </span>
             <span className="font-mono" style={{ fontSize: "var(--font-size-xs)", color: "var(--text-accent)" }}>
               FPS: {String(fps).padStart(2, "0")}
             </span>
           </div>
 
-          <div style={{
-            position: "relative",
-            borderRadius: "var(--radius-xl)",
-            overflow: "hidden",
-            border: "1px solid var(--border-glass)",
-            background: "var(--bg-card)",
-            aspectRatio: "16/9",
-          }}>
-            <video ref={videoRef} autoPlay playsInline style={{ width: "100%", height: "100%", objectFit: "cover", display: cameraActive ? "block" : "none" }} />
-            <canvas ref={canvasRef} style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%", display: cameraActive ? "block" : "none" }} />
+          <div className="camera-view-container">
+            <video ref={videoRef} autoPlay playsInline className="camera-video" style={{ display: cameraActive ? "block" : "none" }} />
+            <canvas ref={canvasRef} className="camera-canvas" style={{ display: cameraActive ? "block" : "none" }} />
 
             {!cameraActive && (
               <div style={{
@@ -388,7 +394,11 @@ export default function TradutorApp() {
                   Posicione sua mão em frente à câmera para traduzir gestos da Libras em texto e áudio.
                 </p>
                 <button className="btn btn-primary btn-lg" onClick={startCamera}>
-                  📷 Iniciar Câmera
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M23 7l-7 5 7 5V7z" />
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+                  </svg>
+                  Iniciar Câmera
                 </button>
                 <span style={{ fontSize: "var(--font-size-xs)", color: "var(--text-muted)" }}>
                   Atalho: pressione <kbd style={{ background: "rgba(255,255,255,0.1)", padding: "2px 6px", borderRadius: 4, fontSize: "var(--font-size-xs)" }}>C</kbd>
@@ -397,15 +407,22 @@ export default function TradutorApp() {
             )}
 
             {cameraActive && (
-              <div style={{ position: "absolute", top: "var(--space-3)", left: "var(--space-3)" }}>
+              <div style={{ position: "absolute", top: "var(--space-3)", left: "var(--space-3)", zIndex: 10 }}>
                 <span style={{
                   background: handDetected ? "rgba(16,185,129,0.2)" : "rgba(239,68,68,0.2)",
                   color: handDetected ? "var(--color-success)" : "var(--color-danger)",
                   padding: "4px 12px", borderRadius: "var(--radius-full)",
                   fontSize: "var(--font-size-xs)", fontWeight: 600,
                   border: `1px solid ${handDetected ? "rgba(16,185,129,0.4)" : "rgba(239,68,68,0.4)"}`,
+                  display: "inline-flex", alignItems: "center", gap: "6px"
                 }}>
-                  {handDetected ? "✋ Mão detectada" : "🖐️ Aguardando mão..."}
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M18 11V6a2 2 0 0 0-4 0v5" />
+                    <path d="M14 10V4a2 2 0 0 0-4 0v6" />
+                    <path d="M10 10.5V6a2 2 0 0 0-4 0v8" />
+                    <path d="M18 8a2 2 0 0 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" />
+                  </svg>
+                  {handDetected ? "Mão detectada" : "Aguardando mão..."}
                 </span>
               </div>
             )}
@@ -414,7 +431,11 @@ export default function TradutorApp() {
           {/* Camera Controls */}
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "var(--space-3)", flexWrap: "wrap", gap: "var(--space-2)" }}>
             <button className={`btn ${cameraActive ? "btn-secondary" : "btn-primary"}`} onClick={startCamera}>
-              📷 {cameraActive ? "Parar Câmera" : "Iniciar Câmera"}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M23 7l-7 5 7 5V7z" />
+                <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+              </svg>
+              {cameraActive ? "Parar Câmera" : "Iniciar Câmera"}
             </button>
             <div style={{ display: "flex", gap: "var(--space-4)", fontSize: "var(--font-size-xs)", color: "var(--text-muted)" }}>
               <span><kbd style={{ background: "rgba(255,255,255,0.1)", padding: "1px 4px", borderRadius: 3 }}>Espaço</kbd> Espaço</span>
@@ -426,14 +447,37 @@ export default function TradutorApp() {
           {/* STT Section */}
           <div style={{ marginTop: "var(--space-6)" }}>
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "var(--space-3)" }}>
-              <span style={{ fontSize: "var(--font-size-sm)", fontWeight: 700, color: "var(--text-secondary)" }}>
-                🎤 Voz → Texto (Ouvinte fala, surdo lê)
+              <span style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "var(--font-size-sm)", fontWeight: 700, color: "var(--text-secondary)" }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                  <line x1="12" y1="19" x2="12" y2="23" />
+                  <line x1="8" y1="23" x2="16" y2="23" />
+                </svg>
+                Voz → Texto (Ouvinte fala, surdo lê)
               </span>
               <button
                 className={`btn btn-sm ${sttListening ? "btn-primary" : "btn-secondary"}`}
                 onClick={toggleSTT}
               >
-                {sttListening ? "⏹️ Parar" : "🎤 Iniciar"}
+                {sttListening ? (
+                  <>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                    </svg>
+                    Parar
+                  </>
+                ) : (
+                  <>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                      <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                      <line x1="12" y1="19" x2="12" y2="23" />
+                      <line x1="8" y1="23" x2="16" y2="23" />
+                    </svg>
+                    Iniciar
+                  </>
+                )}
               </button>
             </div>
             <div style={{
@@ -451,8 +495,11 @@ export default function TradutorApp() {
         <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
           {/* Detected Letter */}
           <div className="card" style={{ textAlign: "center" }}>
-            <div style={{ fontSize: "var(--font-size-sm)", fontWeight: 700, color: "var(--text-secondary)", marginBottom: "var(--space-4)" }}>
-              ✨ Sinal Detectado
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "6px", fontSize: "var(--font-size-sm)", fontWeight: 700, color: "var(--text-secondary)", marginBottom: "var(--space-4)" }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+              </svg>
+              Sinal Detectado
             </div>
             <div style={{
               width: 120, height: 120, margin: "0 auto var(--space-4)",
@@ -492,8 +539,12 @@ export default function TradutorApp() {
 
           {/* Word Builder */}
           <div className="card">
-            <div style={{ fontSize: "var(--font-size-sm)", fontWeight: 700, color: "var(--text-secondary)", marginBottom: "var(--space-3)" }}>
-              📝 Palavra Formada
+            <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "var(--font-size-sm)", fontWeight: 700, color: "var(--text-secondary)", marginBottom: "var(--space-3)" }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" />
+              </svg>
+              Palavra Formada
             </div>
             <div style={{
               minHeight: 50, background: "var(--bg-input)",
@@ -526,8 +577,19 @@ export default function TradutorApp() {
               <button className="btn btn-sm btn-secondary" onClick={() => setWord((p) => [...p, " "])}>Espaço</button>
               <button className="btn btn-sm btn-secondary" onClick={() => setWord((p) => p.slice(0, -1))}>Apagar</button>
               <button className="btn btn-sm btn-secondary" onClick={() => { navigator.clipboard.writeText(word.join("")); showToast("Copiado!"); }}>Copiar</button>
-              <button className="btn btn-sm btn-primary" onClick={() => { const t = word.join(""); if (t.trim()) speechRef.current?.speakWord(t); }}>🔊 Falar</button>
-              <button className="btn btn-sm btn-secondary" style={{ color: "var(--color-danger)" }} onClick={() => { setWord([]); showToast("Palavra limpa."); }}>🗑️</button>
+              <button className="btn btn-sm btn-primary" onClick={() => { const t = word.join(""); if (t.trim()) speechRef.current?.speakWord(t); }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                  <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                </svg>
+                Falar
+              </button>
+              <button className="btn btn-sm btn-secondary" style={{ color: "var(--color-danger)" }} onClick={() => { setWord([]); showToast("Palavra limpa."); }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polyline points="3 6 5 6 21 6" />
+                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                </svg>
+              </button>
             </div>
           </div>
 
@@ -542,9 +604,15 @@ export default function TradutorApp() {
                   color: activeTab === "alphabet" ? "var(--brand-primary-light)" : "var(--text-muted)",
                   fontWeight: 700, fontSize: "var(--font-size-sm)", fontFamily: "var(--font-sans)",
                   borderBottom: activeTab === "alphabet" ? "2px solid var(--brand-primary)" : "2px solid transparent",
+                  display: "flex", alignItems: "center", justifyContent: "center", gap: "6px"
                 }}
               >
-                🔤 Alfabeto
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M4 20h16" />
+                  <path d="M6 16l6-12 6 12" />
+                  <path d="M8 12h8" />
+                </svg>
+                Alfabeto
               </button>
               <button
                 onClick={() => setActiveTab("history")}
@@ -554,9 +622,14 @@ export default function TradutorApp() {
                   color: activeTab === "history" ? "var(--brand-primary-light)" : "var(--text-muted)",
                   fontWeight: 700, fontSize: "var(--font-size-sm)", fontFamily: "var(--font-sans)",
                   borderBottom: activeTab === "history" ? "2px solid var(--brand-primary)" : "2px solid transparent",
+                  display: "flex", alignItems: "center", justifyContent: "center", gap: "6px"
                 }}
               >
-                🕐 Histórico
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
+                </svg>
+                Histórico
               </button>
             </div>
 

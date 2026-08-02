@@ -30,7 +30,12 @@ export default function PesquisaPage() {
             borderColor: "rgba(0,102,255,0.3)",
             background: "linear-gradient(135deg, rgba(15,23,42,0.9) 0%, rgba(0,102,255,0.1) 100%)",
           }}>
-            <div style={{ fontSize: "var(--font-size-5xl)", marginBottom: "var(--space-4)" }}>📋</div>
+            <div className="card-icon" style={{ margin: "0 auto var(--space-4)", width: 64, height: 64, color: "var(--brand-primary-light)" }}>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+              </svg>
+            </div>
             <h2 style={{ fontSize: "var(--font-size-2xl)", fontWeight: 800, marginBottom: "var(--space-3)" }}>
               Pesquisa de Campo WiW Speak
             </h2>
@@ -44,16 +49,52 @@ export default function PesquisaPage() {
               gap: "var(--space-4)", marginBottom: "var(--space-8)", textAlign: "left",
             }}>
               {[
-                { emoji: "👤", title: "Perfil do Respondente", desc: "Dados demográficos e relação com acessibilidade." },
-                { emoji: "🔧", title: "Necessidades Atuais", desc: "Principais barreiras enfrentadas na comunicação." },
-                { emoji: "💡", title: "Solução Proposta", desc: "Avaliação do dispositivo vestível e da plataforma." },
-                { emoji: "📊", title: "Viabilidade", desc: "Disposição para uso e feedback sobre funcionalidades." },
+                {
+                  icon: (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                      <circle cx="12" cy="7" r="4" />
+                    </svg>
+                  ),
+                  title: "Perfil do Respondente",
+                  desc: "Dados demográficos e relação com acessibilidade."
+                },
+                {
+                  icon: (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+                    </svg>
+                  ),
+                  title: "Necessidades Atuais",
+                  desc: "Principais barreiras enfrentadas na comunicação."
+                },
+                {
+                  icon: (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M12 2a6 6 0 0 0-6 6c0 2.22 1.21 4.15 3 5.19V17a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-3.81A6.002 6.002 0 0 0 18 8a6 6 0 0 0-6-6z" />
+                      <line x1="9" y1="21" x2="15" y2="21" />
+                    </svg>
+                  ),
+                  title: "Solução Proposta",
+                  desc: "Avaliação do dispositivo vestível e da plataforma."
+                },
+                {
+                  icon: (
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <line x1="18" y1="20" x2="18" y2="10" />
+                      <line x1="12" y1="20" x2="12" y2="4" />
+                      <line x1="6" y1="20" x2="6" y2="14" />
+                    </svg>
+                  ),
+                  title: "Viabilidade",
+                  desc: "Disposição para uso e feedback sobre funcionalidades."
+                },
               ].map((s) => (
                 <div key={s.title} style={{
                   padding: "var(--space-4)", borderRadius: "var(--radius-md)",
                   background: "rgba(0,0,0,0.2)", border: "1px solid var(--border-subtle)",
                 }}>
-                  <div style={{ fontSize: "var(--font-size-2xl)", marginBottom: "var(--space-2)" }}>{s.emoji}</div>
+                  <div style={{ color: "var(--brand-primary-light)", marginBottom: "var(--space-2)", display: "flex", alignItems: "center" }}>{s.icon}</div>
                   <h4 style={{ fontWeight: 700, fontSize: "var(--font-size-sm)", marginBottom: "var(--space-1)" }}>{s.title}</h4>
                   <p style={{ color: "var(--text-muted)", fontSize: "var(--font-size-xs)" }}>{s.desc}</p>
                 </div>
@@ -67,7 +108,11 @@ export default function PesquisaPage() {
               className="btn btn-primary btn-lg"
               style={{ fontSize: "var(--font-size-lg)" }}
             >
-              📋 Responder Pesquisa Agora
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+                <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+              </svg>
+              Responder Pesquisa Agora
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                 <polyline points="15 3 21 3 21 9" />
