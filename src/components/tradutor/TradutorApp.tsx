@@ -321,10 +321,10 @@ export default function TradutorApp() {
   const progress = Math.min(stableCount / stableThreshold, 1);
 
   return (
-    <div style={{ maxWidth: "var(--max-width)", margin: "0 auto", padding: "var(--space-6)" }}>
+    <div className="tradutor-container">
       {/* Header */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "var(--space-6)", flexWrap: "wrap", gap: "var(--space-4)" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "var(--space-3)" }}>
+      <div className="tradutor-header">
+        <div style={{ display: "flex", alignItems: "center", gap: "var(--space-3)", flexWrap: "wrap" }}>
           <h1 style={{ fontSize: "var(--font-size-2xl)", fontWeight: 800 }}>
             Libras <span className="gradient-text">AI</span>
           </h1>
@@ -387,10 +387,10 @@ export default function TradutorApp() {
               <div style={{
                 position: "absolute", inset: 0, display: "flex", flexDirection: "column",
                 alignItems: "center", justifyContent: "center", gap: "var(--space-4)",
-                background: "rgba(7,9,19,0.9)", textAlign: "center", padding: "var(--space-8)"
+                background: "rgba(7,9,19,0.9)", textAlign: "center", padding: "var(--space-6)"
               }}>
-                <h3 style={{ fontSize: "var(--font-size-xl)", fontWeight: 700 }}>Reconhecimento Inteligente de Gestos</h3>
-                <p style={{ color: "var(--text-secondary)", maxWidth: 400 }}>
+                <h3 style={{ fontSize: "var(--font-size-lg)", fontWeight: 700 }}>Reconhecimento Inteligente de Gestos</h3>
+                <p style={{ color: "var(--text-secondary)", maxWidth: 380, fontSize: "var(--font-size-sm)" }}>
                   Posicione sua mão em frente à câmera para traduzir gestos da Libras em texto e áudio.
                 </p>
                 <button className="btn btn-primary btn-lg" onClick={startCamera}>
@@ -400,7 +400,7 @@ export default function TradutorApp() {
                   </svg>
                   Iniciar Câmera
                 </button>
-                <span style={{ fontSize: "var(--font-size-xs)", color: "var(--text-muted)" }}>
+                <span className="keyboard-hints" style={{ fontSize: "var(--font-size-xs)", color: "var(--text-muted)" }}>
                   Atalho: pressione <kbd style={{ background: "rgba(255,255,255,0.1)", padding: "2px 6px", borderRadius: 4, fontSize: "var(--font-size-xs)" }}>C</kbd>
                 </span>
               </div>
@@ -437,7 +437,7 @@ export default function TradutorApp() {
               </svg>
               {cameraActive ? "Parar Câmera" : "Iniciar Câmera"}
             </button>
-            <div style={{ display: "flex", gap: "var(--space-4)", fontSize: "var(--font-size-xs)", color: "var(--text-muted)" }}>
+            <div className="keyboard-hints">
               <span><kbd style={{ background: "rgba(255,255,255,0.1)", padding: "1px 4px", borderRadius: 3 }}>Espaço</kbd> Espaço</span>
               <span><kbd style={{ background: "rgba(255,255,255,0.1)", padding: "1px 4px", borderRadius: 3 }}>⌫</kbd> Apagar</span>
               <span><kbd style={{ background: "rgba(255,255,255,0.1)", padding: "1px 4px", borderRadius: 3 }}>S</kbd> Falar</span>
@@ -495,24 +495,24 @@ export default function TradutorApp() {
         <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-4)" }}>
           {/* Detected Letter */}
           <div className="card" style={{ textAlign: "center" }}>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "6px", fontSize: "var(--font-size-sm)", fontWeight: 700, color: "var(--text-secondary)", marginBottom: "var(--space-4)" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "6px", fontSize: "var(--font-size-sm)", fontWeight: 700, color: "var(--text-secondary)", marginBottom: "var(--space-3)" }}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
               </svg>
               Sinal Detectado
             </div>
-            <div style={{
-              width: 120, height: 120, margin: "0 auto var(--space-4)",
+            <div className="detected-card-circle" style={{
+              width: 100, height: 100, margin: "0 auto var(--space-3)",
               borderRadius: "var(--radius-full)",
               background: `conic-gradient(var(--brand-primary) ${progress * 360}deg, rgba(255,255,255,0.1) 0deg)`,
               display: "flex", alignItems: "center", justifyContent: "center",
               position: "relative",
             }}>
-              <div style={{
-                width: 100, height: 100, borderRadius: "var(--radius-full)",
+              <div className="detected-card-inner" style={{
+                width: 84, height: 84, borderRadius: "var(--radius-full)",
                 background: "var(--bg-main)", display: "flex",
                 alignItems: "center", justifyContent: "center",
-                fontSize: "var(--font-size-4xl)", fontWeight: 800,
+                fontSize: "var(--font-size-3xl)", fontWeight: 800,
                 color: detectedLetter ? "var(--brand-primary-light)" : "var(--text-muted)",
               }}>
                 {detectedLetter || "?"}
@@ -547,7 +547,7 @@ export default function TradutorApp() {
               Palavra Formada
             </div>
             <div style={{
-              minHeight: 50, background: "var(--bg-input)",
+              minHeight: 48, background: "var(--bg-input)",
               borderRadius: "var(--radius-md)", padding: "var(--space-3)",
               display: "flex", flexWrap: "wrap", gap: "var(--space-1)",
               alignItems: "center", marginBottom: "var(--space-3)",

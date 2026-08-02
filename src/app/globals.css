@@ -1056,6 +1056,28 @@ body {
 }
 
 /* ── Tradutor App Responsive Layout & Mirrored Camera ── */
+.tradutor-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--space-6);
+}
+
+.tradutor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.keyboard-hints {
+  display: flex;
+  gap: var(--space-4);
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+}
+
 .tradutor-grid {
   display: grid;
   grid-template-columns: 1fr 380px;
@@ -1095,4 +1117,36 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 768px) {
+  .tradutor-container {
+    padding: var(--space-3) var(--space-3);
+  }
+
+  .tradutor-header {
+    margin-bottom: var(--space-4);
+    gap: var(--space-2);
+  }
+
+  .keyboard-hints {
+    display: none !important;
+  }
+
+  .camera-view-container {
+    aspect-ratio: 4 / 3;
+  }
+
+  .detected-card-circle {
+    width: 84px !important;
+    height: 84px !important;
+    margin-bottom: var(--space-2) !important;
+  }
+
+  .detected-card-inner {
+    width: 70px !important;
+    height: 70px !important;
+    font-size: var(--font-size-2xl) !important;
+  }
+}
+
 
