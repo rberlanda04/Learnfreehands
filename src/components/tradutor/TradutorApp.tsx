@@ -57,11 +57,9 @@ export default function TradutorApp() {
     setLoadingText("Carregando biblioteca MediaPipe...");
 
     try {
-      const vision = await import(
-        // @ts-expect-error CDN module
-        "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.18/vision_bundle.mjs"
+      const { FilesetResolver, HandLandmarker } = await import(
+        "@mediapipe/tasks-vision"
       );
-      const { FilesetResolver, HandLandmarker } = vision;
 
       setLoadingText("Inicializando detector de sinais...");
 
